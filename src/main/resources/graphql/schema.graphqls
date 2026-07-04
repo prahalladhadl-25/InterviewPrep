@@ -1,0 +1,103 @@
+# GraphQL Schema for E-commerce API
+# This schema demonstrates fetching data from 4 joined tables:
+# Customer -> Order -> OrderItem -> Product
+
+type Query {
+    # Get all customers
+    customers: [Customer!]!
+    
+    # Get customer by ID
+    customer(id: ID!): Customer
+    
+    # Get customer with complete order details (4-table join)
+    customerWithCompleteDetails(id: ID!): Customer
+    
+    # Get all orders
+    orders: [Order!]!
+    
+    # Get order by ID
+    order(id: ID!): Order
+    
+    # Get order with complete details (4-table join)
+    orderWithCompleteDetails(id: ID!): Order
+    
+    # Get orders by customer ID
+    ordersByCustomer(customerId: ID!): [Order!]!
+    
+    # Get orders by status
+    ordersByStatus(status: String!): [Order!]!
+    
+    # Get all products
+    products: [Product!]!
+    
+    # Get product by ID
+    product(id: ID!): Product
+    
+    # Get products by category
+    productsByCategory(category: String!): [Product!]!
+}
+
+# Customer entity
+type Customer {
+    id: ID!
+    name: String!
+    email: String!
+    phone: String
+    address: String
+    createdAt: String!
+    orders: [Order!]!
+}
+
+# Order entity
+type Order {
+    id: ID!
+    customer: Customer!
+    orderDate: String!
+    status: String!
+    totalAmount: Float!
+    shippingAddress: String
+    orderItems: [OrderItem!]!
+}
+
+# OrderItem entity (junction table)
+type OrderItem {
+    id: ID!
+    order: Order!
+    product: Product!
+    quantity: Int!
+    unitPrice: Float!
+    subtotal: Float!
+}
+
+# Product entity
+type Product {
+    id: ID!
+    name: String!
+    description: String
+    price: Float!
+    stockQuantity: Int!
+    category: String
+    createdAt: String!
+}
+
+# Input types for mutations (optional - for future use)
+input CreateCustomerInput {
+    name: String!
+    email: String!
+    phone: String
+    address: String
+}
+
+input CreateProductInput {
+    name: String!
+    description: String
+    price: Float!
+    stockQuantity: Int!
+    category: String
+}
+
+# Mutations (optional - for future use)
+type Mutation {
+    createCustomer(input: CreateCustomerInput!): Customer
+    createProduct(input: CreateProductInput!): Product
+}
