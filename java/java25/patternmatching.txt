@@ -1,0 +1,37 @@
+Primitive Types in Patterns, instanceof, and switch (Preview — JEP 507)
+
+This feature extends pattern matching to work with primitive types everywhere patterns are used — in instanceof, switch, and record patterns.
+
+What it enables:
+
+1. **Primitive type patterns in instanceof**
+Object obj = 42;
+if (obj instanceof int i) {
+    System.out.println("It's an int: " + i);
+}
+2. **Primitive types in switch**
+switch (value) {
+    case 1    -> System.out.println("one");
+    case int i when i > 100 -> System.out.println("large: " + i);
+    default   -> System.out.println("other");
+}
+ **Safe primitive conversions in patterns** — the match succeeds only if the value fits without loss.
+Object o = 1000;
+if (o instanceof byte b) {      // fails: 1000 doesn't fit in a byte
+    // not reached
+} else if (o instanceof int i) { // succeeds
+    System.out.println(i);
+}
+ **Primitive patterns in record deconstruction**
+ record Point(int x, int y) {}
+
+if (obj instanceof Point(int x, int y)) {
+    System.out.println(x + ", " + y);
+}
+Why it matters
+
+	•  Makes pattern matching **uniform** across reference and primitive types.
+	•  Enables **type-safe conversions** (no silent data loss).
+	•  Simplifies switch on primitives with guards (when clauses).
+
+Being a **Preview** feature, you must enable it with --enable-preview when compiling and running.
