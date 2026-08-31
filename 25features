@@ -1,0 +1,16 @@
+     Primitive Types in Patterns, instanceof, and switch (Preview)
+	•  Module Import Declarations (Finalized)
+	•  Compact Source Files and Instance Main Methods (Finalized)
+	•  Flexible Constructor Bodies (Finalized)
+	•  Stable Values (Preview)
+	•  Scoped Values (Finalized)
+	•  Structured Concurrency (Preview)
+	•  Vector API (continued incubation)
+	•  Ahead-of-Time Class Loading & Linking
+	•  Ahead-of-Time Method Profiling
+	•  Compact Object Headers (Finalized)
+	•  Generational Shenandoah GC (Finalized)
+	•  Key Derivation Function API (Finalized)
+	•  PEM Encodings of Cryptographic Objects (Preview)
+	•  Removal of the 32-bit x86 Port
+	•  JFR Cooperative Sampling and JFR Method Timing & Tracing
