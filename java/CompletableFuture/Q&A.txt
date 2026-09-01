@@ -1,0 +1,7 @@
+How is it different from Future ?
+Future — "Start a task and block until it's done."
+CompletableFuture — "Start a task, define what to do next, and never block the main thread."
+
+"Future was a step in the right direction — it let you submit work asynchronously. But the moment you called .get() to retrieve the result you were back to synchronous, blocking code. You couldn't chain anything, you couldn't combine results from two parallel futures cleanly, and error handling was boilerplate-heavy.
+
+CompletableFuture fixed all of that. It treats async results as a pipeline — like Streams do for collections. You define the stages upfront: fetch, transform, combine, handle errors — and the framework wires them together. The main thread stays free. That's the fundamental shift."
