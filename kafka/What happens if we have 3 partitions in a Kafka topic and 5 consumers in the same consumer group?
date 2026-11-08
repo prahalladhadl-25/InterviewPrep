@@ -1,0 +1,15 @@
+What happens if we have 3 partitions in a Kafka topic and 5 consumers in the same consumer group?
+
+Think about:
+- How many consumers will actively consume messages?
+- What happens to the remaining consumers?
+- Can two consumers in the same group read from the same partition simultaneously?
+
+There is a rule where partitions can be greater than or equal to consumers. If we have more consumers, the remaining two consumers will remain idle. Can two consumers in the same group read from same partition simultaneously? No.
+Remember this rule:
+
+Within a consumer group, one partition is assigned to at most one consumer at a time.
+- 3 partitions + 3 consumers = 3 active consumers.
+- 3 partitions + 5 consumers = 3 active, 2 idle.
+- 3 partitions + 2 consumers = 2 active, one consumer handles 2 partitions.
+Increasing the number of consumers beyond the number of partitions does not increase parallelism for that consumer group.
