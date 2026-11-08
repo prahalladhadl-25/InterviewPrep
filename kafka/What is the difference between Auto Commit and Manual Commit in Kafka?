@@ -1,0 +1,25 @@
+What is the difference between Auto Commit and Manual Commit in Kafka?
+
+1. First, understand Offset Commit
+When a Kafka consumer reads messages, it needs to tell Kafka how far it has progressed.
+
+This process is called Offset Commit.
+
+There are two approaches.
+2. Auto Commit vs Manual Commit
+Feature - 	Auto Commit	- Manual Commit
+Offset management - 	Kafka client commits automatically	- Application commits explicitly
+Control	- Less control	- More control
+Configuration	- enable.auto.commit=true	- enable.auto.commit=false
+Risk	- May commit before business processing finishes - 	Can commit after successful processing
+Use case	- Simpler processing scenarios	- Critical business processing
+
+Kafka supports automatic and manual offset commits.
+
+In auto commit, Kafka commits offsets periodically without requiring explicit application intervention.
+
+In manual commit, the application controls when offsets are committed. We can commit after successful message processing.
+
+For critical business operations, I generally prefer manual offset management because it gives better control over message processing and helps avoid message loss due to premature commits.
+
+However, manual commits alone do not guarantee exactly-once business processing. We should also consider idempotency and duplicate handling."
