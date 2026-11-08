@@ -1,0 +1,8 @@
+What is a Kafka Consumer Group? Why do we need Consumer Groups?
+"A Kafka Consumer Group is a group of consumers that work together to consume messages from a Kafka topic.
+
+We use consumer groups to achieve parallel processing and scalability.
+
+In an e-commerce application, the Order Service publishes an OrderCreated event. Payment, Inventory, and Notification services subscribe using three different consumer groups.
+
+Each consumer group independently receives and processes the event according to its business requirements. This allows multiple services to process the same event without depending on each other."
