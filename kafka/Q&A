@@ -1,0 +1,8 @@
+What is Apache Kafka, and why do we use it in microservices architecture?
+"Apache Kafka is a distributed event streaming platform used for building real-time, event-driven applications.
+
+In microservices architecture, we use Kafka for asynchronous communication between services, which helps achieve loose coupling.
+
+It provides high throughput, fault tolerance, scalability, and reliable message processing. Kafka also supports parallel consumption through consumer groups and allows consumers to replay events using message offsets.
+
+For example, in an e-commerce application, when an order is placed, the Order Service publishes an event to Kafka. The Payment Service, Notification Service, and Inventory Service independently consume that event and perform their respective operations."
