@@ -1,0 +1,10 @@
+What is a Kafka Producer and Kafka Consumer? How do they communicate with each other?
+"Kafka Producer is an application or service responsible for publishing messages to a Kafka topic.
+
+Kafka Consumer is an application or service that subscribes to a Kafka topic and consumes those messages.
+
+For example, in an e-commerce application, whenever an order is placed, the Order Service acts as a producer and publishes an OrderCreated event to Kafka.
+
+Payment, Inventory, and Notification services act as independent consumers. Each service consumes the event and performs its respective business operation asynchronously.
+
+This approach provides loose coupling, scalability, and independent processing between microservices."
