@@ -1,0 +1,8 @@
+
+"Kafka maintains offsets for each consumer group and partition. Consumers periodically commit their offsets to track their processing progress.
+
+If a consumer crashes, Kafka reassigns its partitions to another available consumer in the same group.
+
+The new consumer resumes from the last committed offset.
+
+Depending on when the offset was committed, some messages might be processed again. Therefore, we should design consumers to be idempotent to avoid duplicate business operations."
