@@ -1,0 +1,8 @@
+Question 2: What is the difference between a Kafka Topic, Partition, and Offset?
+
+
+"A Kafka Topic is a logical category used to organize messages. A topic can be divided into multiple partitions to enable parallel processing and improve scalability.
+
+Each partition maintains an ordered sequence of messages, and every message gets a unique sequential offset within that partition.
+
+Consumers use offsets to track their reading progress and resume consumption from the appropriate position."
